@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גבי - מפתח תוכנה</title>
+    <title>גבי לוי - מפתח תוכנה</title>
     <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
@@ -15,10 +15,10 @@
             <span>Gabi Levi</span>
         </a>
         <ul class="navbar-links">
-            <li><a href="index.html">ראשי</a></li>
-            <li><a href="projects.html">פרויקטים</a></li>
-            <li><a href="about.html">אודות</a></li>
-            <li><a href="contact.html">צור קשר</a></li>
+            <li><a href="#">ראשי</a></li>
+            <li><a href="#projects">פרויקטים</a></li>
+            <li><a href="#about">אודות</a></li>
+            <li><a href="#contact">צור קשר</a></li>
         </ul>
     </nav>
 
@@ -28,35 +28,58 @@
         <img src="images/JS_logo.png" alt="JavaScript">
     </div>
 
-    <header>
-        <h1>גבי לוי</h1>
-        <p class="subtitle">מפתח תוכנה | בוגר תואר שני במדעי המחשב</p>
-    </header>
+    <section class="about" id="about">
+        <h1>קצת עלי</h1>
+        <img src="images/Gabi.jpg" class="profile-pic">
+        
+        <h2>מפתח תוכנה | בוגר תואר שני במדעי המחשב</h2>
+        <p>גבי לוי, בן 34, בעל ניסיון של 14 שנים בצה"ל בפיתוח מערכות טכנולוגיות מתקדמות.</p>
+        <p>אני בוגר לימודי תואר שני במדעי המחשב במכון הטכנולוגי חולון.</p>
+        <p>וכמו כן לומד במכללת האקריו קורס Full Stack Developer על מנת לחדד את כישורי המקצועיים והרלוונטיות לשוק האזרחי.</p>
+        <p>כיום, לאחר שחרורי מצה''ל והשלמת לימודי האקדמיים אני שואף למצוא את האתגר הבא באזרחות.</p>
 
-    <section class="about">
-        <h2>קצת עלי</h2>
-        <p>
-            אני גבי, בן 34, בוגר תואר שני במדעי המחשב.
-            לאחרונה השתחררתי מצה"ל לאחר 14 שנים של פיתוח מערכות טכנולוגיות מתקדמות.
-        </p>
-        <p>
-            התחלתי כמתכנת והתקדמתי לראש צוות וראש מדור,
-            שם ניהלתי תהליכי פיתוח מורכבים בשלבים שונים של פרויקטים.
-        </p>
-    </section>
-
-    <section class="skills">
-        <h2>יכולות עיקריות</h2>
-        <ul>
+        <h2>יכולות עיקריות |נדרש לערוך|</h2>
+        <ol>
             <li>פיתוח מערכות מורכבות</li>
             <li>ניהול צוותי פיתוח</li>
             <li>עבודה בסביבות טכנולוגיות מתקדמות</li>
             <li>הובלת תהליכים וארכיטקטורה מערכתית</li>
-        </ul>
+        </ol>
     </section>
 
-    <section class="contact">
-        <h2>צור קשר</h2>
+    <section class="projects" id="projects">
+        <h2>הפרויקטים שלי</h2>
+        <p>לחצו על פרויקט כדי לצפות בו</p>
+        <main class="projects-grid">
+            <a href="projects/p1_TicTacToe/index.html" class="project-card">
+                <img src="projects/p1_TicTacToe/images/Tic_Tac_Toe.png" alt="Tic Tac Toe">
+                <div class="card-label">Tic Tac Toe</div>
+            </a>
+            <a href="project-2.html" class="project-card">
+                <img src="https://via.placeholder.com/300x200/3a3a50/ffffff?text=PROJECT+2" alt="פרויקט 2">
+                <div class="card-label">פרויקט 2</div>
+            </a>
+            <a href="project-3.html" class="project-card">
+                <img src="https://via.placeholder.com/300x200/3a3a50/ffffff?text=PROJECT+3" alt="פרויקט 3">
+                <div class="card-label">פרויקט 3</div>
+            </a>
+            <a href="project-4.html" class="project-card">
+                <img src="https://via.placeholder.com/300x200/3a3a50/ffffff?text=PROJECT+4" alt="פרויקט 4">
+                <div class="card-label">פרויקט 4</div>
+            </a>
+            <a href="project-5.html" class="project-card">
+                <img src="https://via.placeholder.com/300x200/3a3a50/ffffff?text=PROJECT+5" alt="פרויקט 5">
+                <div class="card-label">פרויקט 5</div>
+            </a>
+            <a href="project-6.html" class="project-card">
+                <img src="https://via.placeholder.com/300x200/3a3a50/ffffff?text=PROJECT+6" alt="פרויקט 6">
+                <div class="card-label">פרויקט 6</div>
+            </a>
+        </main>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>דברו איתי</h2>
         <p>📧 gabilevi3@gmail.com</p>
         <p><a href="https://www.linkedin.com/in/gabi-levi-a9a26648/" target="_blank" rel="noopener noreferrer" style="color: #2196F3; text-decoration: none;"><img src="https://cdn-icons-png.flaticon.com/16/174/174857.png" alt="LinkedIn" style="vertical-align: middle; margin-left: 5px;"> LinkedIn</a></p>
     </section>

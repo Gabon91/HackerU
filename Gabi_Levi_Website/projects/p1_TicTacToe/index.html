@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style/style/styles.css">
+    <script src="script/app.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="../../index.html" class="navbar-brand">
+            <img src="../../images/Gabi.jpg" alt="Gabi Levi">
+            <span>Gabi Levi</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="../../index.html">ראשי</a></li>
+            <li><a href="../../index.html#projects">פרויקטים</a></li>
+            <li><a href="../../index.html#about">אודות</a></li>
+            <li><a href="../../index.html#contact">צור קשר</a></li>
+        </ul>
+    </nav>
+
+    <div class="skills-bar">
+        <img src="../../images/HTML5_logo.png" alt="HTML5">
+        <img src="../../images/CSS_logo.png" alt="CSS3">
+        <img src="../../images/JS_logo.png" alt="JavaScript">
+    </div>
+
+    <section class="project-intro" id="project-intro">
+        <h1>Tic Tac Toe</h1>
+        <img src="images/Tic_Tac_Toe.png" alt="Tic Tac Toe" class="intro-img">
+        <p class="intro-description">משחק איקס עיגול קלאסי לשני שחקנים. בחרו תור, סמנו את המשבצת שלכם ונסו ליצור שורה של שלושה סימנים זהים — אופקית, אנכית או באלכסון. השחקן הראשון שמצליח — מנצח!</p>
+        <div class="intro-buttons">
+            <a href="images/Tic_Tac_Toe.png" download class="btn btn-download">הורדה</a>
+            <button class="btn btn-play" onclick="startGame()">שחק</button>
+        </div>
+    </section>
+
+    <section class="container" id="game-container" style="display: none;">
+        <p class="status">תור איקס</p>
+        <div class="game-area">
+            <div class="player-panel">
+                <span class="player-symbol">X</span>
+                <input type="text" class="player-name" value="Player 1">
+                <p class="player-score">0</p>
+            </div>
+            <div class="game-board">
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+            <div class="player-panel">
+                <span class="player-symbol">O</span>
+                <input type="text" class="player-name" value="Player 2">
+                <p class="player-score">0</p>
+            </div>
+        </div>
+        <button class="restart-btn">התחל מחדש</button>
+    </section>
+
+    <footer>
+        <p>© 2026 גבי לוי</p>
+    </footer>
+</body>
+</html>
