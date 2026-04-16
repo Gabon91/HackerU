@@ -29,13 +29,18 @@ function startGame() {
 
 // ===== Game Logic =====
 function handleCellClick(e) {
-    const cell = e.target;
+    const cell = e.currentTarget;
     const index = cell.getAttribute('data-index');
 
     if (board[index] !== '' || !gameActive) return;
 
     board[index] = currentPlayer;
-    cell.textContent = currentPlayer;
+    var img = document.createElement('img');
+    img.src = currentPlayer === 'X' ? 'images/X_button.png' : 'images/O_button.png';
+    img.alt = currentPlayer;
+    img.className = 'cell-img';
+    cell.textContent = '';
+    cell.appendChild(img);
 
     if (checkWin()) {
         statusText.textContent = currentPlayer + ' ניצח';
@@ -52,7 +57,7 @@ function handleCellClick(e) {
     }
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    statusText.textContent = currentPlayer + ' תור';
+    statusText.textContent = currentPlayer + ' turn.';
 }
 
 function checkWin() {
@@ -72,9 +77,10 @@ function restartGame() {
     board = ['', '', '', '', '', '', '', '', ''];
     gameActive = true;
     currentPlayer = 'X';
-    statusText.textContent = 'X תור';
+    statusText.textContent = 'X turn.';
     cells.forEach(function (cell) {
         cell.textContent = '';
+        cell.innerHTML = '';
     });
 }
 
