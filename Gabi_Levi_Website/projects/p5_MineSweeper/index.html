@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineSweeper</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="../../index.html" class="navbar-brand">
+            <img src="../../images/Gabi.jpg" alt="Gabi Levi">
+            <span>Gabi Levi</span>
+        </a>
+        <ul class="navbar-links">
+            <li><a href="../../index.html">ראשי</a></li>
+            <li><a href="../../index.html#projects">פרויקטים</a></li>
+            <li><a href="../../index.html#about">אודות</a></li>
+            <li><a href="../../index.html#contact">צור קשר</a></li>
+        </ul>
+    </nav>
+
+    <div class="skills-bar">
+        <img src="../../images/HTML5_logo.png" alt="HTML5">
+        <img src="../../images/CSS_logo.png" alt="CSS3">
+        <img src="../../images/JS_logo.png" alt="JavaScript">
+    </div>
+
+    <section class="project-intro" id="project-intro">
+        <h1>MineSweeper</h1>
+        <img src="images/MineSweeper.png" alt="MineSweeper" class="intro-img">
+        <p class="intro-description">משחק שולה המוקשים הקלאסי! חשפו משבצות בלוח תוך הימנעות ממוקשים נסתרים. השתמשו בדגלים לסמן מוקשים חשודים. חשפו את כל המשבצות הבטוחות כדי לנצח!</p>
+        <div class="intro-buttons">
+            <a href="https://github.com/gabilevi1/Gabi_Levi_Website/archive/refs/heads/main.zip" download="p5_MineSweeper.zip" class="btn btn-download">הורדה</a>
+            <button class="btn btn-play" onclick="startGame()">שחק</button>
+        </div>
+    </section>
+
+    <section class="mine-container" id="game-container" style="display: none;">
+        <div class="mine-header">
+            <div class="info-box">
+                <span class="info-label">מוקשים</span>
+                <span class="info-value" id="mines-left">10</span>
+            </div>
+            <div class="smiley-box" id="smiley-btn" title="התחל מחדש">
+                <span class="smiley" id="smiley">😊</span>
+            </div>
+            <div class="info-box">
+                <span class="info-label">זמן</span>
+                <span class="info-value" id="timer">00:00</span>
+            </div>
+        </div>
+        <div class="mine-board" id="mine-board"></div>
+        <div class="mine-footer">
+            <p class="controls-hint">לחצו לחשוף | קליק ימני לדגל 🚩</p>
+            <button class="btn btn-restart" id="restart-btn">התחל מחדש</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 גבי לוי</p>
+    </footer>
+
+    <script src="script/app.js"></script>
+</body>
+</html>
