@@ -1,0 +1,462 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #eef2f7;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #1a3a5c;
+}
+
+/* ===== Sudoku Container ===== */
+.sudoku-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    flex: 1;
+}
+
+.sudoku-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 20px;
+}
+
+.info-box {
+    background-color: #ffffff;
+    border: 2px solid #c8d6e5;
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    min-width: 100px;
+}
+
+.info-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #7a8a9a;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.info-value {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.btn-restart {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.btn-restart:hover {
+    background-color: #1976D2;
+}
+
+/* ===== Sudoku Board ===== */
+.sudoku-board {
+    display: inline-grid;
+    grid-template-columns: repeat(9, 48px);
+    grid-template-rows: repeat(9, 48px);
+    border: 3px solid #1a3a5c;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.sudoku-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(48px * 3);
+    width: 3px;
+    background: #1a3a5c;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: calc(48px * 3) 0 0 #1a3a5c;
+}
+
+.sudoku-board::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(48px * 3);
+    height: 3px;
+    background: #1a3a5c;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 calc(48px * 3) 0 #1a3a5c;
+}
+
+.sudoku-cell {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: #ffffff;
+    border: 1px solid #c8d6e5;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s ease;
+}
+
+.sudoku-cell:hover {
+    background-color: #e8f1fc;
+}
+
+.sudoku-cell.selected {
+    background-color: #bbdefb;
+}
+
+.sudoku-cell.highlighted {
+    background-color: #e3f0fc;
+}
+
+.sudoku-cell.given {
+    color: #1a3a5c;
+    background-color: #f0f4f8;
+    cursor: default;
+}
+
+.sudoku-cell.given.selected {
+    background-color: #cfd8e3;
+}
+
+.sudoku-cell.given.highlighted {
+    background-color: #e0e8f0;
+}
+
+.sudoku-cell.error {
+    color: #e53e3e;
+    background-color: #fde8e8;
+}
+
+
+
+
+
+/* ===== Number Pad ===== */
+.number-pad {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.num-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid #c8d6e5;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.num-btn:hover {
+    background-color: #dbe9f9;
+    border-color: #2196F3;
+}
+
+.erase-btn {
+    color: #e53e3e;
+}
+
+.controls-hint {
+    font-size: 0.95rem;
+    color: #7a8a9a;
+    letter-spacing: 1px;
+}
+
+/* ===== Project Intro ===== */
+.project-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.project-intro h1 {
+    margin-bottom: 20px;
+}
+
+.intro-img {
+    width: 280px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.intro-description {
+    max-width: 500px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    color: #3d5068;
+}
+
+.intro-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-play {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-play:hover {
+    background-color: #1976D2;
+}
+
+.btn-download {
+    background-color: #ffffff;
+    color: #2196F3;
+    border: 2px solid #2196F3;
+}
+
+.btn-download:hover {
+    background-color: #e8f1fc;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #1a3a5c;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.navbar-brand img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #c8d6e5;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 6px 4px;
+    transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+    color: #2196F3;
+}
+
+/* ===== Sections ===== */
+#about,
+#projects,
+#contact {
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 30px;
+    scroll-margin-top: 60px;
+}
+
+#about {
+    background-color: #eef2f7;
+}
+
+.profile-pic {
+    width: 225px;
+    height: 225px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #c8d6e5;
+    margin-bottom: 10px;
+}
+
+header + #about {
+    margin-top: -30px;
+    padding-top: 20px;
+}
+
+.about h2:not(:first-of-type) {
+    margin-top: 30px;
+}
+
+#projects {
+    background-color: #dbe9f9;
+}
+
+#contact {
+    background-color: #f0f4f8;
+}
+
+/* ===== Skills Bar ===== */
+.skills-bar {
+    width: 100%;
+    background-color: #e3eaf2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 8px 20px;
+}
+
+.skills-bar img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ===== Projects Grid (moved from inline) ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 40px 20px 60px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.project-card {
+    text-decoration: none;
+    color: inherit;
+    background-color: #ffffff;
+    border: 2px solid #c8d6e5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #2196F3;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background-color: #dbe9f9;
+}
+
+.project-card .card-label {
+    text-align: center;
+    padding: 14px 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #7a8a9a;
+    font-size: 0.9rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .navbar-links {
+        gap: 16px;
+    }
+}

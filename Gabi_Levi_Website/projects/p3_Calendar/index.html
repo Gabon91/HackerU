@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>לוח שנה אינטראקטיבי</title>
     <link rel="stylesheet" href="style/styles.css">
-    <script src="script/app.js"></script>
 </head>
 <body>
 
@@ -29,13 +28,76 @@
     </div>
 
     <section class="project-intro" id="project-intro">
-        <h1>Tic Tac Toe</h1>
-        <img src="images/Tic_Tac_Toe.png" alt="Tic Tac Toe" class="intro-img">
-        <p class="intro-description">משחק איקס עיגול קלאסי לשני שחקנים. בחרו תור, סמנו את המשבצת שלכם ונסו ליצור שורה של שלושה סימנים זהים — אופקית, אנכית או באלכסון. השחקן הראשון שמצליח — מנצח!</p>
+        <h1>לוח שנה אינטראקטיבי</h1>
+        <img src="images/Calendar.png" alt="Calendar" class="intro-img">
+        <p class="intro-description">לוח שנה אינטראקטיבי עם תצוגת יום, שבוע וחודש. הוסיפו אירועים, נווטו בין חודשים, ושמרו וטענו את האירועים שלכם כקובץ JSON.</p>
         <div class="intro-buttons">
-            <a href="https://github.com/gabilevi1/Gabi_Levi_Website/archive/refs/heads/main.zip" download="p1_TicTacToe.zip" class="btn btn-download">הורדה</a>
-            <button class="btn btn-play" onclick="startGame()">שחק</button>
+            <a href="https://github.com/gabilevi1/Gabi_Levi_Website/archive/refs/heads/main.zip" download="p3_Calendar.zip" class="btn btn-download">הורדה</a>
+            <button class="btn btn-play" onclick="startApp()">התחל</button>
         </div>
     </section>
 
-    <section class="container" id="calendar-container" style="display: none;">
+    <section class="calendar-container" id="calendar-container" style="display: none;">
+        <!-- Calendar Header -->
+        <div class="cal-header">
+            <div class="cal-nav">
+                <button class="cal-nav-btn" id="prev-btn">◀</button>
+                <h2 class="cal-title" id="cal-title"></h2>
+                <button class="cal-nav-btn" id="next-btn">▶</button>
+            </div>
+            <div class="cal-views">
+                <button class="view-btn active" data-view="month">חודש</button>
+                <button class="view-btn" data-view="week">שבוע</button>
+                <button class="view-btn" data-view="day">יום</button>
+            </div>
+        </div>
+
+        <!-- Month View -->
+        <div class="cal-month" id="cal-month">
+            <div class="cal-weekdays">
+                <div>א'</div><div>ב'</div><div>ג'</div><div>ד'</div><div>ה'</div><div>ו'</div><div>ש'</div>
+            </div>
+            <div class="cal-days" id="cal-days"></div>
+        </div>
+
+        <!-- Week View -->
+        <div class="cal-week" id="cal-week" style="display: none;"></div>
+
+        <!-- Day View -->
+        <div class="cal-day-view" id="cal-day-view" style="display: none;"></div>
+
+        <!-- Actions -->
+        <div class="cal-actions">
+            <button class="btn btn-add-event" id="add-event-btn">הוסף אירוע</button>
+            <button class="btn btn-export" id="export-btn">שמור כ-JSON</button>
+            <button class="btn btn-import" id="import-btn">טען מ-JSON</button>
+        </div>
+        <input type="file" id="file-input" accept=".json" style="display: none;">
+    </section>
+
+    <!-- Event Modal -->
+    <div class="modal-overlay" id="modal-overlay" style="display: none;">
+        <div class="modal">
+            <h3 class="modal-title">הוסף אירוע</h3>
+            <label>תאריך</label>
+            <input type="date" id="event-date" class="modal-input">
+            <label>שעה</label>
+            <input type="time" id="event-time" class="modal-input">
+            <label>כותרת</label>
+            <input type="text" id="event-title" class="modal-input" placeholder="שם האירוע">
+            <label>תיאור</label>
+            <textarea id="event-desc" class="modal-input" placeholder="פרטים נוספים..." rows="3"></textarea>
+            <div class="modal-buttons">
+                <button class="btn btn-save" id="save-event-btn">שמור</button>
+                <button class="btn btn-cancel" id="cancel-event-btn">ביטול</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 גבי לוי</p>
+    </footer>
+
+    <script src="script/app.js"></script>
+</body>
+</html>

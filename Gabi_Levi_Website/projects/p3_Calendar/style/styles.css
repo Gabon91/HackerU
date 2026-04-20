@@ -20,117 +20,411 @@ body {
     overflow-x: hidden;
 }
 
-.container {
-    text-align: center;
-    padding: 30px;
-}
-
 h1 {
     margin-bottom: 20px;
     color: #1a3a5c;
 }
 
-.game-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
-}
-
-.player-panel {
+/* ===== Calendar Container ===== */
+.calendar-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    flex: 1;
 }
 
-.player-symbol {
-    font-size: 1.8rem;
+.cal-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cal-nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.cal-nav-btn {
+    background: #ffffff;
+    border: 2px solid #c8d6e5;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.cal-nav-btn:hover {
+    background: #dbe9f9;
+    border-color: #2196F3;
+}
+
+.cal-title {
+    font-size: 1.4rem;
+    color: #1a3a5c;
+    min-width: 180px;
+    text-align: center;
+}
+
+.cal-views {
+    display: flex;
+    gap: 6px;
+}
+
+.view-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid #c8d6e5;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.view-btn:hover {
+    border-color: #2196F3;
+}
+
+.view-btn.active {
+    background: #2196F3;
+    color: white;
+    border-color: #2196F3;
+}
+
+/* ===== Month View ===== */
+.cal-month {
+    width: 100%;
+}
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
     font-weight: bold;
+    font-size: 0.9rem;
+    color: #7a8a9a;
+    padding: 8px 0;
+    border-bottom: 2px solid #c8d6e5;
+}
+
+.cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.cal-day {
+    min-height: 80px;
+    border: 1px solid #e0e8f0;
+    padding: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    position: relative;
+}
+
+.cal-day:hover {
+    background: #e8f1fc;
+}
+
+.cal-day.other-month {
+    color: #b0bec5;
+    background: #f8f9fb;
+}
+
+.cal-day.today {
+    background: #dbe9f9;
+    border-color: #2196F3;
+}
+
+.cal-day .day-number {
+    font-weight: bold;
+    font-size: 0.95rem;
     color: #1a3a5c;
 }
 
-.player-symbol-img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+.cal-day.other-month .day-number {
+    color: #b0bec5;
 }
 
-.player-name {
+.cal-day.today .day-number {
+    background: #2196F3;
+    color: white;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-events {
+    margin-top: 4px;
+}
+
+.day-event {
+    font-size: 0.75rem;
+    background: #2196F3;
+    color: white;
+    border-radius: 3px;
+    padding: 2px 4px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.day-event:hover,
+.week-event:hover,
+.day-hour-event:hover {
+    background: #e53e3e;
+}
+
+/* ===== Week View ===== */
+.cal-week {
+    width: 100%;
+}
+
+.week-grid {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    border: 1px solid #c8d6e5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.week-header {
+    background: #f0f4f8;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 10px 4px;
+    text-align: center;
+    border-bottom: 2px solid #c8d6e5;
+    color: #1a3a5c;
+}
+
+.week-header.today-header {
+    background: #dbe9f9;
+    color: #2196F3;
+}
+
+.week-time {
+    font-size: 0.75rem;
+    color: #7a8a9a;
+    padding: 4px;
+    text-align: center;
+    border-bottom: 1px solid #e0e8f0;
+    border-right: 1px solid #e0e8f0;
+    background: #f8f9fb;
+}
+
+.week-cell {
+    min-height: 40px;
+    border-bottom: 1px solid #e0e8f0;
+    border-right: 1px solid #e0e8f0;
+    cursor: pointer;
+    padding: 2px;
+    transition: background 0.1s ease;
+}
+
+.week-cell:hover {
+    background: #e8f1fc;
+}
+
+.week-event {
+    font-size: 0.7rem;
+    background: #2196F3;
+    color: white;
+    border-radius: 3px;
+    padding: 1px 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ===== Day View ===== */
+.cal-day-view {
+    width: 100%;
+}
+
+.day-view-header {
+    text-align: center;
     font-size: 1.1rem;
     font-weight: bold;
     color: #1a3a5c;
+    margin-bottom: 12px;
+}
+
+.day-hours {
+    border: 1px solid #c8d6e5;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.day-hour-row {
+    display: flex;
+    border-bottom: 1px solid #e0e8f0;
+    min-height: 44px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.day-hour-row:hover {
+    background: #e8f1fc;
+}
+
+.day-hour-label {
+    width: 60px;
+    font-size: 0.8rem;
+    color: #7a8a9a;
+    padding: 8px 6px;
     text-align: center;
+    background: #f8f9fb;
+    border-right: 1px solid #e0e8f0;
+    flex-shrink: 0;
+}
+
+.day-hour-content {
+    flex: 1;
+    padding: 4px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: flex-start;
+}
+
+.day-hour-event {
+    font-size: 0.8rem;
+    background: #2196F3;
+    color: white;
+    border-radius: 4px;
+    padding: 3px 8px;
+}
+
+/* ===== Actions ===== */
+.cal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-add-event {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-add-event:hover {
+    background-color: #1976D2;
+}
+
+.btn-export {
+    background-color: #ffffff;
+    color: #2196F3;
+    border: 2px solid #2196F3;
+}
+
+.btn-export:hover {
+    background-color: #e8f1fc;
+}
+
+.btn-import {
+    background-color: #ffffff;
+    color: #1a8a4a;
+    border: 2px solid #1a8a4a;
+}
+
+.btn-import:hover {
+    background-color: #e6f5ec;
+}
+
+/* ===== Modal ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.modal-title {
+    font-size: 1.3rem;
+    color: #1a3a5c;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.modal label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #7a8a9a;
+    margin-bottom: 4px;
+    margin-top: 10px;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 10px 12px;
     border: 2px solid #c8d6e5;
     border-radius: 6px;
-    padding: 6px 10px;
-    width: 120px;
-    background-color: #ffffff;
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
     transition: border-color 0.2s ease;
 }
 
-.player-name:focus {
+.modal-input:focus {
     outline: none;
     border-color: #2196F3;
 }
 
-.player-score {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #2196F3;
-}
-
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 10px;
-    justify-content: center;
-}
-
-.cell {
-    background-color: #ffffff;
-    border: 2px solid #c8d6e5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+.modal-buttons {
     display: flex;
+    gap: 12px;
+    margin-top: 20px;
     justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    color: #2c3e50;
-    cursor: pointer;
-    transition: background 0.2s ease;
 }
 
-.cell:hover {
-    background-color: #dbe9f9;
-}
-
-.cell-img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    pointer-events: none;
-}
-
-.status {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.restart-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    background-color: #2196F3;
+.btn-save {
+    background: #2196F3;
     color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.2s ease;
 }
 
-.restart-btn:hover {
-    background-color: #1976D2;
+.btn-save:hover {
+    background: #1976D2;
+}
+
+.btn-cancel {
+    background: #ffffff;
+    color: #e53e3e;
+    border: 2px solid #e53e3e;
+}
+
+.btn-cancel:hover {
+    background: #fde8e8;
 }
 
 /* ===== Project Intro ===== */
