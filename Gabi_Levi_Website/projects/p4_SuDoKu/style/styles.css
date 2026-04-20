@@ -440,23 +440,114 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .sudoku-board {
+        grid-template-columns: repeat(9, 40px);
+        grid-template-rows: repeat(9, 40px);
+    }
+
+    .sudoku-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .sudoku-board::before {
+        left: calc(40px * 3);
+        box-shadow: calc(40px * 3) 0 0 #1a3a5c;
+    }
+
+    .sudoku-board::after {
+        top: calc(40px * 3);
+        box-shadow: 0 calc(40px * 3) 0 #1a3a5c;
+    }
+
+    .num-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+
+    .intro-img {
+        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        padding: 8px 12px;
     }
 
     .navbar-links {
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+
+    .skills-bar {
+        gap: 12px;
+        padding: 6px 10px;
+    }
+
+    .skills-bar img {
+        height: 28px;
+    }
+
+    .sudoku-board {
+        grid-template-columns: repeat(9, 34px);
+        grid-template-rows: repeat(9, 34px);
+    }
+
+    .sudoku-cell {
+        width: 34px;
+        height: 34px;
+        font-size: 0.95rem;
+    }
+
+    .sudoku-board::before {
+        left: calc(34px * 3);
+        box-shadow: calc(34px * 3) 0 0 #1a3a5c;
+    }
+
+    .sudoku-board::after {
+        top: calc(34px * 3);
+        box-shadow: 0 calc(34px * 3) 0 #1a3a5c;
+    }
+
+    .num-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.9rem;
+    }
+
+    .number-pad {
+        gap: 5px;
+    }
+
+    .sudoku-header {
+        gap: 12px;
+    }
+
+    .btn-restart {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .intro-img {
+        width: 180px;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }

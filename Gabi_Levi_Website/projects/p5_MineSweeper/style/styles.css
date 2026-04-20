@@ -402,23 +402,97 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .mine-header {
+        gap: 16px;
+    }
+
+    .mine-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 0.85rem;
+    }
+
+    .intro-img {
+        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        padding: 8px 12px;
     }
 
     .navbar-links {
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+
+    .skills-bar {
+        gap: 12px;
+        padding: 6px 10px;
+    }
+
+    .skills-bar img {
+        height: 28px;
+    }
+
+    .mine-container {
+        padding: 20px 10px;
+    }
+
+    .mine-header {
+        gap: 12px;
+    }
+
+    .info-box {
+        padding: 10px 14px;
+        min-width: 70px;
+    }
+
+    .info-value {
+        font-size: 1.2rem;
+    }
+
+    .smiley {
+        font-size: 1.5rem;
+    }
+
+    .mine-cell {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+
+    .mine-cell.flagged::after {
+        font-size: 0.8rem;
+    }
+
+    .btn-restart {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+
+    .controls-hint {
+        font-size: 0.8rem;
+    }
+
+    .intro-img {
+        width: 180px;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }

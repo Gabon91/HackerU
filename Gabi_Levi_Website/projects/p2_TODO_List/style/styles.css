@@ -397,23 +397,84 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .todo-container {
+        max-width: 100%;
+        padding: 30px 16px;
+    }
+
+    .todo-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .intro-img {
+        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        padding: 8px 12px;
     }
 
     .navbar-links {
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+
+    .skills-bar {
+        gap: 12px;
+        padding: 6px 10px;
+    }
+
+    .skills-bar img {
+        height: 28px;
+    }
+
+    .todo-container {
+        padding: 20px 10px;
+    }
+
+    .todo-item {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+
+    .todo-text {
+        font-size: 0.9rem;
+    }
+
+    .btn-edit, .btn-delete {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .todo-actions {
+        gap: 8px;
+    }
+
+    .intro-img {
+        width: 180px;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }

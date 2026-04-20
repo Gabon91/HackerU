@@ -365,23 +365,87 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .game-area {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell-img {
+        width: 55px;
+        height: 55px;
+    }
+
+    .intro-img {
+        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        padding: 8px 12px;
     }
 
     .navbar-links {
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+
+    .skills-bar {
+        gap: 12px;
+        padding: 6px 10px;
+    }
+
+    .skills-bar img {
+        height: 28px;
+    }
+
+    .game-board {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(3, 70px);
+        gap: 6px;
+    }
+
+    .cell-img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .player-name {
+        width: 100px;
+        font-size: 0.9rem;
+    }
+
+    .player-symbol-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .intro-img {
+        width: 180px;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 20px 10px;
     }
 }

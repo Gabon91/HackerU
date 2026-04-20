@@ -659,23 +659,131 @@ footer {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .calendar-container {
+        padding: 20px 12px;
+    }
+
+    .cal-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .cal-day {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .day-event {
+        font-size: 0.65rem;
+    }
+
+    .week-grid {
+        grid-template-columns: 45px repeat(7, 1fr);
+    }
+
+    .modal {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .intro-img {
+        width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         gap: 8px;
+        padding: 8px 12px;
     }
 
     .navbar-links {
-        gap: 16px;
+        gap: 12px;
+    }
+
+    .navbar-links a {
+        font-size: 0.85rem;
+    }
+
+    .skills-bar {
+        gap: 12px;
+        padding: 6px 10px;
+    }
+
+    .skills-bar img {
+        height: 28px;
+    }
+
+    .cal-title {
+        font-size: 1.1rem;
+        min-width: 140px;
+    }
+
+    .cal-views {
+        gap: 4px;
+    }
+
+    .view-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .cal-day {
+        min-height: 50px;
+        padding: 3px;
+    }
+
+    .cal-day .day-number {
+        font-size: 0.8rem;
+    }
+
+    .cal-day.today .day-number {
+        width: 22px;
+        height: 22px;
+    }
+
+    .day-event {
+        font-size: 0.6rem;
+        padding: 1px 2px;
+    }
+
+    .cal-weekdays {
+        font-size: 0.75rem;
+    }
+
+    .week-grid {
+        grid-template-columns: 40px repeat(7, 1fr);
+        font-size: 0.7rem;
+    }
+
+    .week-header {
+        padding: 6px 2px;
+        font-size: 0.7rem;
+    }
+
+    .cal-actions {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .intro-img {
+        width: 180px;
+    }
+
+    .intro-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .intro-buttons {
+        flex-direction: column;
+        gap: 10px;
     }
 }
